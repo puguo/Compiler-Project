@@ -8,8 +8,8 @@ JC = javac
 
 CP = ./deps:.
 
-P6.class: P6.java parser.class Yylex.class ASTnode.class
-	$(JC) -g -cp $(CP) P6.java
+Main.class: Main.java parser.class Yylex.class ASTnode.class
+	$(JC) -g -cp $(CP) Main.java
 
 parser.class: parser.java ASTnode.class Yylex.class ErrMsg.class
 	$(JC) -g -cp $(CP) parser.java
@@ -57,7 +57,7 @@ EmptySymTableException.class: EmptySymTableException.java
 # test
 ###
 test:
-	java -cp $(CP) P6 test.minim test.s
+	java -cp $(CP) Main test.minim test.s
 
 ###
 # clean
